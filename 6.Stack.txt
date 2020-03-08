@@ -3,7 +3,7 @@
 using namespace std;
 typedef struct
 {
-    int top;
+    int top;//most upper value
     int data[STACK_MAX];
 } Stack;
 void push(Stack *s,int item)

@@ -14,10 +14,6 @@ int main()
     while(left<=right)
     {
         int mid=(left+right)/2;
-        if(A[mid]==x)
-        {
-            cout<<mid;
-        }
         if(A[mid]<x)
         {
             left=mid+1;
@@ -26,5 +22,9 @@ int main()
             right=mid-1;
 
     }
-    return -1;
+    if(A[mid]==x)
+        {
+            cout<<mid;
+        }
+  return -1;
 }

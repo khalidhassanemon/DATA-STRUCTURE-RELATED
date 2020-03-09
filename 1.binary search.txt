@@ -18,9 +18,10 @@ int main()
         {
             left=mid+1;
         }
-        else
+        if(A[mid]>x)
+         {
             right=mid-1;
-
+         }
     }
     if(A[mid]==x)
         {

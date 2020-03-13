@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+#define Q_SIZE 5
+using namespace std;
+typedef struct
+{
+    int tail,head;
+    int data[Q_SIZE+1];
+} Queue;
+void enqueue(Queue *q,int item)
+{
+    if((q->tail+1)%(Q_SIZE+1)==(q->head))
+    {
+        cout<<"queue is full"<<endl;
+        return;
+    }
+    q->data[q->tail]=item;
+    q->tail=((q->tail+1)%(Q_SIZE+1));
+}
+int dequeue(Queue *q)
+{
+    int item;
+    if(q->tail==q->head)
+    {
+        cout<<"queue is empty"<<endl;
+        return -1;
+    }
+    item=q->data[q->head];
+    q->head=(q->head+1)%(Q_SIZE);
+}
+int main()
+{
+    Queue my_q;
+    int item;
+    my_q.head=0;
+    my_q.tail=0;
+    enqueue(&my_q,1);
+    cout<<"tail="<<my_q.tail<<endl;
+    enqueue(&my_q,2);
+    cout<<"tail="<<my_q.tail<<endl;
+
+    cout<<"begining head="<<my_q.head<<endl;
+    item=dequeue(&my_q);
+    cout<<"head="<<my_q.head<<" "<<"item="<<item<<endl;
+    item=dequeue(&my_q);
+    cout<<"head="<<my_q.head<<" "<<"item="<<item<<endl;
+    item=dequeue(&my_q);
+    cout<<"head="<<my_q.head<<" "<<"item="<<item<<endl;
+    return 0;
+}
